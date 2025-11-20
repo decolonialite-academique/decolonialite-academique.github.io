@@ -1,1 +1,0 @@
-# decolonialite-academique.github.io
