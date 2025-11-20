@@ -1,103 +1,85 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colloquium</title>
-    <!-- Chargement de Tailwind CSS -->
+    <title>Colloquium Announcement</title>
+    <!-- Load Tailwind CSS for simple styling and responsiveness -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        /* Configuration de la police Inter */
-		body { font-family: 'American Typewriter', serif; }
+        /* Apply the Inter font as default, but use font-mono (typewriter) for the body */
         body {
-            font-family: 'American Typewriter', serif;
-            color: #000000; /* Gris très foncé pour une lisibilité maximale */
-            background-color: #FFFFFF; /* Arrière-plan blanc pur */
-        }
-        .text-primary {
-            color: #7DC8DB;
-        }
-        .bg-primary {
-            background-color: #0C6991;
-        }
-        /* Suppression de l'ombre de l'en-tête pour un style encore plus minimal */
-        .header-shadow {
-            box-shadow: none; 
-            border-bottom: 3px solid #F3F4F6; /* Une très fine ligne de séparation */
-        }
-        /* Style pour les sections (espacement uniforme) */
-        section {
-            padding-top: 1rem; 
-            padding-bottom: 1rem;
-        }
-        @media (min-width: 640px) {
-            section {
-                padding-top: 3rem;
-                padding-bottom: 0rem;
-            }
+            font-family: 'Inter', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column; /* Allows content and header to stack */
+            align-items: center;
+            justify-content: flex-start; /* Start content from the top */
+            background-color: #f7f7f7; /* Light gray background */
+            color: #1f2937; /* Dark gray text */
         }
     </style>
 </head>
-<body>
+<body class="font-mono text-base p-4">
 
-    <!-- Barre de Navigation (Minimaliste) -->
-    <header class="sticky top-0 z-50 bg-white header-shadow">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <a href="index.html" class="text-2xl font-bold text-primary focus:outline-none focus:ring-2 focus:ring-indigo-500 p-1">
-                    Colloquium
-                </a>
+    <!-- Top Navigation Menu -->
+    <nav class="w-full max-w-3xl mx-auto py-4 mb-4 border-b border-gray-900">
+        <div class="flex justify-center space-x-8 text-sm uppercase tracking-widest">
+            <a href="index.html" class="hover:text-gray-600 transition duration-150">home</a>
+            <a href="programme.html" class="hover:text-gray-600 transition duration-150">programme</a>
+            <a href="committee.html" class="hover:text-gray-600 transition duration-150">comité scientifique</a>
+        </div>
+    </nav>
 
-                <!-- Navigation Desktop -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="programme.html" class="text-gray-700 hover:text-primary font-medium transition duration-150 ease-in-out">Programme</a>
-                    <a href="./comunique_rassemblement_181025.pdf" class="text-gray-700 hover:text-primary font-medium transition duration-150 ease-in-out">Affiche</a>
-                </nav>
+    <!-- Main Content Container: max width, centered -->
+    <div class="max-w-3xl w-full mx-auto p-8 bg-white border-2 border-gray-900 shadow-xl rounded-lg md:p-12">
+        
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-3xl font-bold border-gray-900 pb-3 inline-block">
+                Approches féministes décoloniales des libertés académiques</h1>
+            <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">Sorbonne Université, UFR de Géographie et Aménagement</p>
+        </header>
 
-               <a href="mailto:decolonialite_academique@proton.me" class="text-primary hover:underline">decolonialite_academique@proton.me
-               </a>
 
-                <!-- Bouton Menu Mobile -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary transition duration-150 ease-in-out" aria-label="Menu">
-                    <!-- Icône Menu SVG -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
+        <!-- Main Details -->
+        <section class="space-y-6">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                <div>
+                    <p class="text-sm uppercase text-gray-500">Date & Horaire</p>
+                    <p class="font-medium">vendredi, 12 décembre 2025, de 9h à 18h30</p>
+                </div>
+                <div>
+                    <p class="text-sm uppercase text-gray-500">Lieu</p>
+                    <p class="font-medium">Sorbonne Université, site Malesherbes, Amphi 111</p>
+                </div>
             </div>
-        </div>
-
-        <!-- Menu Mobile (Affiché ou masqué par JS) -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4 bg-white border-t border-gray-100">
-        </div>
-    </header>
-
-    <!-- Section d'Accueil (Hero) -->
-    <section id="accueil" class="bg-white text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl tracking-tight text-gray-900 mb-6">
-                <span class="block">Approches féministes décoloniales des libertés académiques</span>
-                <span class="block mt-4 text-primary text-6xl">Decolonialité Academique</span>
-            </h1>
-		  	<p class="text-xl text-gray-600 mb-0 max-w-2xl mx-auto font-light">
-                Sorbonne Université<br>UFR de Géographie et Aménagement.
-            </p>
-        </div>
-    </section>
-
-
-
-
-
-    <!-- Pied de Page (Footer - Le plus simple possible) -->
-    <footer class="bg-white text-gray-700 mt-0 pt-10 pb-6">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="pt-6 mt-6 border-t text-center">
-                <p class="text-xs text-gray-400">&copy; 2025 Decolonialité Academique. Tous droits réservés.</p>
+            
+            <!-- Abstract -->
+            <div class="pt-6 border-t border-dashed border-gray-400 text-sm">
+                <p class="text-sm uppercase text-gray-500 mb-3">Abstract</p>
+                <p class="leading-relaxed text-gray-700">
+                    Ces dernières années, les prises de position en défense des libertés académiques se sont multipliées, en réponse aux offensives réactionnaires visant le monde universitaire. Depuis 2020, de nombreux et de nombreuses universitaires ont été pris.e.s pour cible et accusé.e.s d'introduire une prétendue « dictature de la cancel culture » au sein des universités françaises. Dans ce contexte, il est devenu indispensable de créer des espaces permettant de dénoncer ces attaques et d'alerter sur les risques bien réels de restrictions des libertés académiques, pourtant garanties par la loi.<br><br>
+                    Le mouvement Stand Up for Science, le récent congrès organisé par France Université, ainsi que le rapport sur l’état des libertés académiques dans le monde témoignent de la volonté du milieu universitaire et de la recherche de s'opposer fermement aux atteintes portées aux libertés d'enseigner, de mener des recherches et de faire circuler librement les savoirs, les approches et les méthodes. Ce débat a d'ailleurs dépassé la seule sphère académique pour devenir un sujet d'intérêt médiatique. Cependant, la réflexion sur la conception des savoirs, des sciences, les conditions mêmes de production et transmission des connaissances - qui constituent le fondement des libertés académiques - restent largement absentes du cœur des discussions.<br><br>
+                    De quoi parle-t-on lorsque l'on parle des sciences ? Quels paradigmes les fondent et dans quels espaces historiques, politiques et géographiques ce que nous appelons aujourd'hui « sciences » s'est-il constitué ? Quelles valeurs sous-tendent les libertés académiques telles qu'elles sont définies en Europe ? Peut-on réellement défendre la science, le savoir et la connaissance sans interroger les structures de pouvoir et les mécanismes de domination qui conditionnent leur production ? Peut-on réfléchir aux sciences en Europe aujourd'hui sans questionner leur inscription dans un passé et un présent coloniaux, ni le rôle de la construction de l'Occident comme centre de ce qui serait reconnu comme « sciences ». En outre, peut-on penser le savoir sans penser à son rapport avec la colonialité?<br><br>
+                    Ce colloque se donne pour objectif d'interroger la notion de libertés académiques à partir des épistémologies féministes et décoloniales, afin d'en proposer une lecture critique et radicale. Ces approches montrent en effet que les savoirs ne sont jamais neutres. Ils se construisent et se déploient au sein de rapports de pouvoir et de domination qui agissent au niveau systémique. Si l'idée qu'il faut garantir une place légitime aux savoirs qualifiés de « minoritaires » dans les institutions universitaires fait largement consensus, le fait qu'ils soient étiquetés comme « radicaux » contribue à les délégitimer et à leur refuser toute reconnaissance scientifique.<br><br>
+                    Contrairement à l'acceptation hégémonique du terme radical, qui l'associe à l'extrémisme et contribue à faire taire la critique des savoirs et des institutions dominantes, radical renvoie plutôt à l'idée de revenir à la racine (Ben Boubaker, Dor 2023), de chercher la cause profonde (Bhandar & Ziadah, 2020) et de saisir les contradictions sociopolitiques de la domination (Freire, 1968). Adopter une position radicale permet ainsi d'interroger la réalité en profondeur, de développer une auto-réflexivité et de créer des espaces de dialogue critique (hooks, 2019) favorisant la production, la diffusion et la circulation des savoirs décoloniaux. Ces savoirs transgressent les normes de « la culture coloniale » (Hajjat, 2014) et viennent bousculer les idées politiques clivées qui traversent aussi bien la sphère publique que l’Université.<br><br>
+                    Nous avons aujourd'hui besoin de savoirs capables de « remettre en question le statu quo, y compris le statu quo épistémologique, et l’ordre social inégalitaire » (Sirma Bilge, 2015). Ces savoirs, mobilisés par les minoritaires racialisées (Mazouz, 2020 ; Guénif-Souilamas, 2020), critiquent les savoirs institutionnels eurocéntriques, les arrangements de pouvoir et le fonctionnement du système pouvoir/vérité (Foucault, 2008). Face à ces critiques, la réaction des savoirs eurocéntriques pour préserver leur propre autorité consiste alors à assigner aux personnes racialisées des formes de savoirs particuliers, perçues comme moins théoriques et moins universels (Bilge, 2015). <br><br> 
+                    En effet, depuis deux ans, nous assistons à une tentative de décrédibilisation croissante des savoirs produits sur la Palestine et à un renforcement de la violence épistémique (Spivak 2009), qui délégitime les savoirs produits par les chercheurs et chercheuses palestinien.ne.s et rend leurs voix inaudibles (Salih 2024) jusqu'à les réduire au silence.<br><br>
+                    Les dynamiques d’effacement des palestinien.nes sur le terrain en Palestine, se reproduisent au sein de nos universités (Barakat, 2018) par l'effacement de leurs épistémologies. Qualifiés de « militants » et disqualifiés comme « non objectifs », ces savoirs rappellent pourtant une réalité fondamentale, déjà théorisé par de nombreuses féministes : tout savoir est politique. <br><br>
+                    Le 9 novembre, le ministre de l'Enseignement supérieur et de la Recherche, Philippe Baptiste, annonce sur X l’annulation du colloque « Palestine et Europe : poids du passé et dynamiques contemporaines » qui devait se tenir au Collège de France la semaine suivante, en reprochant aux organisateurs une prétendue partialité. Dans son communiqué, il assume le paradoxe selon lequel une telle annulation protégerait les libertés académiques en prévenant un supposé risque de trouble à l'ordre public. <br><br>
+                    La Palestine a plus que jamais rendu manifeste l’obsolescence de nos universités, encore structurées par des savoirs hégémoniques. Les universitaires sont désormais appelés à affronter la colonialité des savoirs, qui entretient le statut quo et alimente ce que Mark Fisher appelle le « réalisme capitaliste ». Si ce réalisme capitaliste tue notre imaginaire et empêche d'envisager des alternatives au capitalisme, le « réalisme universitaire » opère de manière comparable ; il nous empêche de penser que les universités pourraient devenir des espaces de radicalité (hooks, 2019). Des espaces où l'on pourrait aller collectivement chercher les racines des injustices ; où les savoirs deviendraient des outils d’émancipation plutôt que des instruments d’oppression ; où l’autorité des figures d’enseignement et de recherche se transformerait en responsabilité, et non en privilège.<br><br>
+                    Peut-être avons-nous aujourd'hui l'occasion de reconstruire, sur les ruines de l'université universaliste, une université pluriverselle qui deviendrait un espace majeur de dialogue critique et de réflexion pour un monde juste et décolonial. Dans ces années marquées par les injonctions au silence - qu'elles prennent la forme de sanctions directes ou d'une « peur d’atmosphère » - les mots de la poète afroaméricaine lesbienne Audre Lorde résonnent avec une force renouvelée lorsqu'elle nous invite à transformer le silence en acte. Et si, comme le rappelle l'artiste Céline Ahond, la peur est un poison qui se diffuse partout, alors le corps collectif en est l'antidote. Multiplier les initiatives, créer des espaces, pratiquer la solidarité et la tendresse militante nous permet de ne pas succomber au poids du silence car,<br><br>
+                    « Quand nous parlons, nous avons peur que nos mots ne sont pas écoutés ou accueillis. Mais quand nous restons en silence nous avons peur aussi. Donc c’est mieux de parler ». Audre Lorde                </p>
             </div>
-        </div>
-    </footer>
+        </section>
+       <!-- Footer -->
+        <footer class="text-center mt-10 pt-4 border-t border-gray-900">
+            <p class="text-sm text-gray-500">RSVP not required. Refreshments will be provided.</p>
+        </footer>
 
-   
+    </div>
+
+</body>
+</html>
